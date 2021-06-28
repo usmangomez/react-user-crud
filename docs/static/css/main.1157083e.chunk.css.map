@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/styles/style.scss"],"names":[],"mappings":"AAAA,YACE,YAAa,CACb,YAAa,CAFf,cAKI,mBAAA,CAAA,WAAY","file":"main.1157083e.chunk.css","sourcesContent":[".card-width {\r\n  height: 250px;\r\n  padding: 1rem;\r\n\r\n  p {\r\n    flex-grow: 1;\r\n  }\r\n}\r\n"]}
