@@ -60,11 +60,14 @@ export const UserListApp = () => {
 
     // CREATE NEW USER SUBMIT
     const createNewUser = () => {
-        let rand = Math.random() * 999999;
-        setNewUser({ ...newUser, id: rand })
-        setUsers([newUser, ...users]);
-        handleClose();
-        console.log(users)
+        if (newUser.name.trim().length > 0 && newUser.lastname.trim().length > 0 && newUser.email.trim().length > 0) {
+            let rand = Math.random() * 999999;
+            setNewUser({ ...newUser, id: rand })
+            setUsers([newUser, ...users]);
+            handleClose();
+        } else {
+            window.confirm('No puedes dejar campos vacios!');
+        }
     };
 
     ////////////////////////////////////////////////////////////
@@ -101,15 +104,19 @@ export const UserListApp = () => {
 
     //SUBMIT EDIT USER
     const editUserSubmit = (a) => {
-        users.map(user => {
-            if (user.id === a) {
-                user.name = editUser.name;
-                user.lastname = editUser.lastname;
-                user.email = editUser.email;
-            }
-        })
+        if (editUser.name.trim().length > 0 && editUser.lastname.trim().length > 0 && editUser.email.trim().length > 0) {
+            users.map(user => {
+                if (user.id === a) {
+                    user.name = editUser.name;
+                    user.lastname = editUser.lastname;
+                    user.email = editUser.email;
+                }
+            })
 
-        handleEditClose();
+            handleEditClose();
+        } else {
+            window.confirm('No puedes dejar campos vacios!');
+        }
     };
 
 
