@@ -55,19 +55,19 @@ export const UserListApp = () => {
 
     // NEW USER INPUT HANDLE
     const newUserHandle = (e) => {
-        setNewUser({ ...newUser, [e.target.name]: e.target.value })
+        let rand = Math.random() * 999999;
+        setNewUser({ ...newUser, [e.target.name]: e.target.value, id: rand })
     };
 
     // CREATE NEW USER SUBMIT
     const createNewUser = () => {
         if (newUser.name.trim().length > 0 && newUser.lastname.trim().length > 0 && newUser.email.trim().length > 0) {
-            let rand = Math.random() * 999999;
-            setNewUser({ ...newUser, id: rand })
             setUsers([newUser, ...users]);
             handleClose();
         } else {
             window.confirm('No puedes dejar campos vacios!');
         }
+        setNewUser({ id: 0, name: '', lastname: '', email: '' });
     };
 
     ////////////////////////////////////////////////////////////
@@ -111,6 +111,7 @@ export const UserListApp = () => {
                     user.lastname = editUser.lastname;
                     user.email = editUser.email;
                 }
+                return user;
             })
 
             handleEditClose();
